@@ -1,5 +1,18 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
+
+
+
+require('./db/db.js');
+
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({extended: false}));
+
+const userController = require('./controllers/userController.js');
+app.use('/user', userController);
 
 
 
@@ -10,7 +23,7 @@ app.get('/', (req,res) =>{
 });
 
 app.get('*', (req,res) =>{
-    res.send("404 not found")
+    res.send("👽 404 👽")
 });
 
 
