@@ -11,6 +11,8 @@ require('./db/db.js');
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
+
+// same as router -> stores expotred router from userController file into userController
 const userController = require('./controllers/userController.js');
 app.use('/user', userController);
 
@@ -22,11 +24,7 @@ app.get('/', (req,res) =>{
     res.render('index.ejs')
 });
 
-app.get('*', (req,res) =>{
-    res.send("👽 404 👽")
-});
 
-
-app.listen(3000,() =>{
+app.listen(3001,() =>{
     console.log("Sever listening at port 3000")
 });

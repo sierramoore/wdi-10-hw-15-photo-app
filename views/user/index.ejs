@@ -4,7 +4,7 @@
     <title>User Home PAge</title>
 </head>
 <body>
-<h1>User Home Page</h1>
+<h1>Users Home Page</h1>
 <nav>
     <ul>
         <li>
@@ -13,8 +13,21 @@
         <li>
             <a href="/photo/">📸 Photographers</a>
         </li>
+        <li>
+            <a href="/user/new">Create an Account</a>
+        </li>
     </ul>
 </nav>
-<h2>Create your Profile</h2>
+
+<h2>List of Users</h2>
+<ul>
+    <% for (let i = 0; i < users.length; i++) { %>
+    <li><a href="/user/<%=users[i]._id %>"><%= users[i].username %></a> </li>
+    <% } %>
+</ul>
+
+
+
+
 </body>
 </html>
